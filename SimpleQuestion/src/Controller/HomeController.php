@@ -25,7 +25,6 @@ class HomeController extends AbstractController
             $submittedAnswer = $form->get('answer')->getData();
 
             if ($submittedAnswer === $correctAnswer->getAnswer()) {
-                $isCorrect = true;
                 $this->addFlash(
                     "success",
                     "That's correct! Well done!"
