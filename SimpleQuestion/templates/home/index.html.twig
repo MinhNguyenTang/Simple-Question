@@ -15,20 +15,30 @@
         and all are devoured by the monster. He also destroys crops.
     </blockquote>
 
-    <form method="post">
-        <label for="text">
-            What kind of being, with a single voice, 
-            has four legs in the morning, two legs at noon, and three legs at night?
-        </label>
-        <input type="text" placeholder="Your answer" autocomplete="text" required>
-        <small>
-            Can you answer correctly the Sphinx riddle?
-        </small>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_row(form.answer) }}
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    <p style="color: green; margin-top: -0.9rem;">{{ message }}</p>
+                </div>
+            {% endfor %}
+    
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-danger">
+                    <p style="color: red; margin-top: -0.9rem;">{{ message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
         <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+    {{ form_end(form) }}
 </div>
 
 <footer>
-    Created by a Guardia Cybersecurity School student
+    <small>
+        Created by a Guardia Cybersecurity School student •
+        Built with Symfony and Pico CSS
+    </small>
 </footer>
 {% endblock %}

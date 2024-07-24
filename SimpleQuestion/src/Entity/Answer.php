@@ -26,6 +26,7 @@ class Answer
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->answer_id = $this->getAnswerId();
     }
 
     public function getId(): ?int
